@@ -51,12 +51,12 @@ public class NewGame {
 		wordDisplay(word);
 		errors =-1;
 		System.out.println();
-		String[] hangmanNo = Hangman.HANGMANPICS;
+		//String[] hangmanNo = ;
 		if (errors < 0) {
-			System.out.println("Super Ci idzie");
+			System.out.println(" ");
 		}
 		else {
-		System.out.print(hangmanNo[errors]);
+		System.out.println(Hangman.HANGMANPICS[errors]);
 		}
 	}
 	
