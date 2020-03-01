@@ -60,7 +60,8 @@ public class Hangman {
     public static void main(String[] args) {
     	System.out.println("lala");
     	NewGame gra = new NewGame();
-    	
+    	String word  = gra.tryGame();
+    	gra.display(word, 2);
     	
     }
 }

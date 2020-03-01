@@ -13,9 +13,7 @@ import java.util.Scanner;
 
 public class NewGame {
 
-	File file = new File(
-			getClass().getClassLoader().getResource("database.properties").getFile()
-		);
+	File file = new File("src/main/resources/slowa.txt");
 	//Path file = Paths.get("slowa.txt");
 	
 	private char[] checkWord;
@@ -26,10 +24,9 @@ public class NewGame {
 		
 	}
 	public String tryGame() {
-		String word = null;
 		System.out.println("Wybierz metode wybory slowa:");
 		System.out.println("[0] Losuj z pliku");
-		
+		String word = null;
 		Scanner scanner  = new Scanner(System.in);
 		option = scanner.nextInt();
 		if (option != 0)
@@ -37,17 +34,17 @@ public class NewGame {
 			System.out.println("Opcja nie dostepna");
 		}
 		else {
-			wordFromFile();
+			word = wordFromFile();
 		}
 		
 		
-		word.toUpperCase();
 		return word;
 	}
 	
 	private String wordFromFile() {
 		ArrayList<String> words = loadFile(file);
-		String word = randomWord(words);
+		String word = randomWord(words).toUpperCase();
+		System.out.println(word);
 		return word;
 	}
 	public void display(String word, int errors) {
@@ -64,14 +61,14 @@ public class NewGame {
 	}
 	
 	private void wordDisplay(String word) {
-		
+		char[] checkWord = new char[word.length()];
 		for (int i = 0; i < word.length(); i++) {
 			
 			if (word.charAt(i) == ' ') {
-				checkWord [i] = ' ';
+				checkWord[i] = ' ';
 			}
 			else {		
-			checkWord [i] = '_';
+			checkWord[i] = '_';
 			}
 		}
 		System.out.println(checkWord);
