@@ -55,6 +55,7 @@ public class Hangman {
     };
 
     public static void main(String[] args) {
+    	Play gra = new Play();
     	System.out.println("dupa");
     }
 }
