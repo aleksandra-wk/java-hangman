@@ -63,7 +63,7 @@ public class Hangman {
     	System.out.println("lala");
     	NewGame gra1= new NewGame();
     	String word  = gra1.tryGame();
-    	System.out.print(HANGMANPICS[4]);
+    	;
 
     	Play gra = new Play(word);
     	
@@ -78,6 +78,7 @@ public class Hangman {
     		System.out.println(gra.getCurrentGuess());
     		//System.out.println(gra.compare());
     		gra1.display(word, gra.getNrOfWrong());
+    		System.out.print(HANGMANPICS[gra.getNrOfWrong()]);
     	}
     	
 
