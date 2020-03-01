@@ -61,7 +61,7 @@ public class Hangman {
     	System.out.println("lala");
     	Path file = Paths.get("slowa.txt");
     	NewGame gra = new NewGame();
-    	gra.loadFile(file);
+    	
     	
     }
 }
