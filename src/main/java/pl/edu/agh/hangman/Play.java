@@ -4,11 +4,12 @@ import java.util.Scanner;
 
 public class Play {
 	
-	private String wordToGuess = "dupa";
+	private String wordToGuess;
 	private int length = wordToGuess.length();
-	private int nrOfTrials = 7;
-	private char[] emptyGuess = null;
-	private char currentLetter = ' ';
+	private int maxNrOfTrials = 7;
+	private int nrOfWrong = 0; ////////////////////////////////
+	private char[] currentGuess;
+	private char currentLetter;
 	
 //	char currentChar = null;
 	
@@ -23,10 +24,10 @@ public class Play {
 	
 	
 	//split the word into chars
-	private char[] splitToChars(String word) {
+	private char[] splitToChars() {
 		char[] letters=null;
-		for (int i = 0;i < word.length(); i++){
-		    letters[i]=word.charAt(i);
+		for (int i = 0;i < wordToGuess.length(); i++){
+		    letters[i]=wordToGuess.charAt(i);
 		}
 		return letters;
 	}
@@ -51,7 +52,12 @@ public class Play {
 
 	//try a letter and replace in a guess
 	private void tryLetter(char a) {
-		
+		for (int i=0;i<length;i++) {
+			if (splitToChars()[i]==currentLetter) {
+				this.currentGuess[i]=currentLetter;
+			}
+		}
+	
 		
 	}
 	
