@@ -6,15 +6,22 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class NewGame {
 
 	Path file = Paths.get("slowa.txt");
+	
+	ArrayList<String> words = new ArrayList<String>();
+	
+	public NewGame() {
+		
+	}
 
-	private ArrayList<String> words = new ArrayList<String>();
-	
-	
+
+
 	public void loadFile(Path file) {
+		
 		try (BufferedReader reader = Files.newBufferedReader(file)) {
 		    String line = null;
 		    while ((line = reader.readLine()) != null) {
@@ -26,8 +33,14 @@ public class NewGame {
 	}
 	
 	
-	
-	//public void findWord() {
+	public String randomWord(ArrayList<String> words) {
 		
+		
+		Random random = new Random();
+		int randIndex = random.nextInt(words.size());
+		
+		return words.get(randIndex);
+	}
+	
 
 }
