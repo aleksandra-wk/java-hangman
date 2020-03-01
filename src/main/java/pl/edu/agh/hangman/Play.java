@@ -1,64 +1,79 @@
 package pl.edu.agh.hangman;
 
 import java.util.Scanner;
+import java.lang.*;
 
 public class Play {
 	
 	private String wordToGuess;
-	private int length = wordToGuess.length();
-	private int maxNrOfTrials = 7;
 	private int nrOfWrong = 0; ////////////////////////////////
 	private char[] currentGuess;
 	private char currentLetter;
 	
-//	char currentChar = null;
 	
-//	char[] letters = splitToChars(wordToGuess);
-//	
-//	for(char s : letters) {
-//		System.out.println(s);
-//	}
-	
-	
-	/// aaaaa! potrzebuje tez konstruktora!
-	
+	public Play(String wordToGuess) {
+		super();
+		this.wordToGuess = wordToGuess;
+	}
+
+	public int getNrOfWrong() {
+		return nrOfWrong;
+	}
 	
 	//split the word into chars
 	private char[] splitToChars() {
-		char[] letters=null;
+		int length = wordToGuess.length();
+		char[] letters=new char[length];
 		for (int i = 0;i < wordToGuess.length(); i++){
 		    letters[i]=wordToGuess.charAt(i);
 		}
 		return letters;
 	}
-	
+
 	//create empty string of proper length
-	private char[] emptyGuess(int length) {
-		char[] guess = null;
+	void emptyGuess() {
+		int length = wordToGuess.length();
+		char[] guess= new char[length];
 		for (int i=0;i<length;i++) {
 			guess[i]='_';
 		}
-		return guess;
+		currentGuess = guess;
 	}
 	
 	//read letter from input
-	private char readLetter() {
+	void readLetter() {
 		Scanner scanner = new Scanner(System.in);
         System.out.println("guess> ");
         char letter = scanner.next().charAt(0);
 //        String sc = scan.nextLine();
-		return letter;
+        letter = Character.toUpperCase(letter);
+		currentLetter = letter;
 	}
 
 	//try a letter and replace in a guess
-	private void tryLetter(char a) {
-		for (int i=0;i<length;i++) {
+	void tryLetter() {
+		int trial = 0;
+//		char a = currentLetter;
+		for (int i=0;i<wordToGuess.length();i++) {
 			if (splitToChars()[i]==currentLetter) {
 				this.currentGuess[i]=currentLetter;
+				trial = trial +1;
 			}
 		}
+		if (trial==0) nrOfWrong=nrOfWrong+1;	
+	}
 	
-		
+	boolean compare() {
+		for (int i=0;i<wordToGuess.length();i++) {
+			if (splitToChars()[i]!=currentGuess[i]) {
+				return false;
+			}	
+		}
+		return true;
+	}
+
+	public char[] getCurrentGuess() {
+		return currentGuess;
 	}
 	
 }

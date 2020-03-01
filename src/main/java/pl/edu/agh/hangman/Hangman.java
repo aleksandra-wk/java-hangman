@@ -55,7 +55,25 @@ public class Hangman {
     };
 
     public static void main(String[] args) {
-    	Play gra = new Play();
-    	System.out.println("dupa");
+    	
+    	String slowo = "DUPA";
+    	Play gra = new Play(slowo);
+    	
+    	int maxNrOfTrials = 7;
+    	int nrOfTrials = 0;
+    	
+		gra.emptyGuess();
+    	while (nrOfTrials<maxNrOfTrials) {
+    		gra.readLetter();
+    		gra.tryLetter();
+    		System.out.println(gra.getNrOfWrong());
+    		System.out.println(gra.getCurrentGuess());
+    		System.out.println(gra.compare());
+
+    	}
+    	
+    	
+    	
+
     }
 }
