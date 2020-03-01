@@ -1,11 +1,14 @@
 package pl.edu.agh.hangman;
 
+import java.util.Scanner;
+
 public class Play {
 	
 	private String wordToGuess = "dupa";
 	private int length = wordToGuess.length();
 	private int nrOfTrials = 7;
 	private char[] emptyGuess = null;
+	private char currentLetter = ' ';
 	
 //	char currentChar = null;
 	
@@ -39,12 +42,16 @@ public class Play {
 	
 	//read letter from input
 	private char readLetter() {
-		char letter = ' ';
+		Scanner scanner = new Scanner(System.in);
+        System.out.println("guess> ");
+        char letter = scanner.next().charAt(0);
+//        String sc = scan.nextLine();
 		return letter;
 	}
 
 	//try a letter and replace in a guess
 	private void tryLetter(char a) {
+		
 		
 	}
 	
