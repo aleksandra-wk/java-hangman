@@ -12,16 +12,20 @@ public class NewGame {
 
 	Path file = Paths.get("slowa.txt");
 	
-	ArrayList<String> words = new ArrayList<String>();
+	
 	
 	public NewGame() {
 		
 	}
+	public String tryGame() {
+		ArrayList<String> words = loadFile(file);
+		String word = randomWord(words).toUpperCase();
+		return word;
+	}
+	
 
-
-
-	public void loadFile(Path file) {
-		
+	public ArrayList<String> loadFile(Path file) {
+		ArrayList<String> words = new ArrayList<String>();
 		try (BufferedReader reader = Files.newBufferedReader(file)) {
 		    String line = null;
 		    while ((line = reader.readLine()) != null) {
@@ -30,15 +34,13 @@ public class NewGame {
 		} catch (IOException x) {
 		    System.err.format("IOException: %s", x);
 		}
+		return words;
 	}
 	
 	
 	public String randomWord(ArrayList<String> words) {
-		
-		
 		Random random = new Random();
 		int randIndex = random.nextInt(words.size());
-		
 		return words.get(randIndex);
 	}
 	
