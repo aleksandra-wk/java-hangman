@@ -44,17 +44,23 @@ public class NewGame {
 		word.toUpperCase();
 		return word;
 	}
+	
 	private String wordFromFile() {
 		ArrayList<String> words = loadFile(file);
 		String word = randomWord(words);
 		return word;
 	}
-	public void display(String word) {
-		
-		
-		
+	public void display(String word, int errors) {
 		wordDisplay(word);
-		
+		errors =-1;
+		System.out.println();
+		String[] hangmanNo = Hangman.HANGMANPICS;
+		if (errors < 0) {
+			System.out.println("Super Ci idzie");
+		}
+		else {
+		System.out.print(hangmanNo[errors]);
+		}
 	}
 	
 	private void wordDisplay(String word) {
