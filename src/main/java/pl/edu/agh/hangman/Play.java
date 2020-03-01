@@ -16,6 +16,9 @@ public class Play {
 //	}
 	
 	
+	/// aaaaa! potrzebuje tez konstruktora!
+	
+	
 	//split the word into chars
 	private char[] splitToChars(String word) {
 		char[] letters=null;
@@ -28,6 +31,9 @@ public class Play {
 	//create empty string of proper length
 	private char[] emptyGuess(int length) {
 		char[] guess = null;
+		for (int i=0;i<length;i++) {
+			guess[i]='_';
+		}
 		return guess;
 	}
 	
